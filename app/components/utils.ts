@@ -1,15 +1,16 @@
+import { mul, divide, ToPrecision } from '../utils/base';
+
 // 格式化函数
 export const formatNumber = (num: number, pos = 2): string => {
-  if (num >= 1000000000) return `${(num / 1000000000).toFixed(pos)}B`;
-  if (num >= 1000000) return `${(num / 1000000).toFixed(pos)}M`;
-  if (num >= 1000) return `${(num / 1000).toFixed(pos)}K`;
-  return `${num.toFixed(pos)}`;
+  if (num >= 1000000000) return `${ToPrecision(divide(num, 1000000000), pos)}B`;
+  if (num >= 1000000) return `${(ToPrecision(divide(num, 1000000)), pos)}M`;
+  if (num >= 1000) return `${(ToPrecision(divide(num, 1000)), pos)}K`;
+  return `${ToPrecision(num, pos)}`;
 };
 
 // 百分比
 export const formatPercentage = (num: number, pos = 2): string => {
-  // return `${num > 0 ? '+' : ''}${(num * 100).toFixed(2)}%`;
-  return `${(num * 100).toFixed(pos)}%`;
+  return `${ToPrecision(mul(num, 100), pos)}%`;
 };
 
 export const getPriceChangeColor = (change: number): string => {
