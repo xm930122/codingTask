@@ -8,11 +8,12 @@ export interface TokenInfo {
   chainId: string;
   count24h: number;
   dex: string;
-  info: {
-    twitter?: string;
-    website?: string;
-    telegram?: string;
-  };
+  info: string,
+  // info: {
+  //   twitter?: string;
+  //   website?: string;
+  //   telegram?: string;
+  // };
   liquidity: number;
   marketCap: number;
   pair: string;
