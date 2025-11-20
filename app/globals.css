@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root {
+  /* 基础颜色 */
+  --background: rgba(0, 0, 0, 1);
+  --foreground: rgba(255, 255, 255, 1);
+
+  /* 文本颜色 */
+  --text-primary: rgba(255, 255, 255, 1);
+  --text-secondary: rgba(255, 255, 255, 0.4);
+
+  /* 品牌颜色 */
+  --primary-pink: rgba(238, 171, 189, 1);
+  --row-hovered: rgba(244, 188, 204, 1);
+
+  /* 状态颜色 */
+  --upside: rgba(70, 193, 127, 1);
+  --downside: rgba(229, 56, 56, 1);
+
+  /* UI 颜色 */
+  --border: rgba(60, 43, 47, 1);
+}
+
+@theme inline {
+  /* 基础颜色 */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* 文本颜色 */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  /* 品牌颜色 */
+  --color-primary-pink: var(--primary-pink);
+  --color-row-hovered: var(--row-hovered);
+
+  /* 状态颜色 */
+  --color-upside: var(--upside);
+  --color-downside: var(--downside);
+
+  /* UI 颜色 */
+  --color-border: var(--border);
+
+  /* 字体 */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* 自定义宽度 */
+  --width-100: 100px;
+  --width-150: 150px;
+  --width-200: 200px;
+  --width-250: 250px;
+}
+
+/* 深色模式配置 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 可以根据需要调整深色模式的变量 */
+    --background: rgba(0, 0, 0, 1);
+    --foreground: rgba(255, 255, 255, 1);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* 自定义工具类 */
+@layer utilities {
+  .column-class {
+    flex-direction: column;
+  }
+  .text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .text-primary-pink {
+    color: var(--primary-pink);
+  }
+
+  .bg-primary-pink {
+    background-color: var(--primary-pink);
+  }
+
+  .border-custom {
+    border-color: var(--border);
+  }
+
+  .text-upside {
+    color: var(--upside);
+  }
+
+  .text-downside {
+    color: var(--downside);
+  }
+
+  .hover-row:hover {
+    background-color: var(--row-hovered);
+  }
+
+  /* 表格特定样式 */
+  .table-last-col-no-border tbody td:last-child {
+    border-right: none;
+  }
+
+  /* 自定义工具类 */
+  .w-100 {
+    width: var(--width-100);
+  }
+
+  .w-150 {
+    width: var(--width-150);
+  }
+
+  .w-200 {
+    width: var(--width-200);
+  }
+
+  .w-250 {
+    width: var(--width-250);
+  }
+
+  .search-icon, 
+  .copy-icon {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .span-class {
+    max-width: 120px;
+    display: inline-block;
+  }
+
+  /* 自定义表格样式 */
+  .table-custom {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .table-custom .th-special {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 表格行固定高度 */
+  .table-custom tbody tr {
+    height: 36px;
+  }
+
+  .tdClass {
+    padding-right: 6px;
+  }
+
+  /* 最后一列tbody不加边框 */
+  .table-custom tbody td:last-child .tdClass {
+    border-right: none;
+  }
+
+  /* .table-custom thead th:last-child {
+    border-right: none;
+  } */
+
+  /* 行悬停效果 */
+  .table-custom tbody tr:hover {
+    background-color: var(--color-row-hovered);
+  }
+}
